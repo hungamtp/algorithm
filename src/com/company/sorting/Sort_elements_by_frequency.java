@@ -7,7 +7,7 @@ import java.util.Map;
 // https://www.geeksforgeeks.org/sort-elements-by-frequency/
 public class Sort_elements_by_frequency {
     public static void main(String[] args) {
-        int arr[] = {2, 5, 2, 8, 5, 6, 8, 8};
+        int arr[] = {8, 8, 8, 2, 2, 5, 5, 6, -1, 9999999};
         solve(arr);
     }
 
