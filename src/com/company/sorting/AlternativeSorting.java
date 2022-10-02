@@ -1,5 +1,5 @@
 package com.company.sorting;
-
+//https://www.geeksforgeeks.org/alternative-sorting/?ref=lbp
 public class AlternativeSorting {
     public static void main(String[] args) {
         int arr[] = {7, 1, 2, 3, 4, 5, 6};
