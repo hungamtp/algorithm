@@ -24,7 +24,7 @@ public class Sort_elements_by_frequency {
         }
         int[][] mapResult = new int[map.size()][2];
         int index = 0 ;
-        for(var keySet :  map.keySet()){
+        for(Integer keySet :  map.keySet()){
             mapResult[index][0] = keySet;
             mapResult[index][1] = map.get(keySet);
             index ++;
