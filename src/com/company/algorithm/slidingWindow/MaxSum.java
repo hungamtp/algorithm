@@ -1,8 +1,6 @@
 package com.company.algorithm.slidingWindow;
 
-import java.util.*;
-
-public class SlidingWindow {
+public class MaxSum {
     public static void main(String[] args) {
         int[] arr1 = new int[]{1, 2, 3, 4, 5, 0, 2, 2, 5};
         int[] arr2 = new int[]{2, 2, 0, -4, 2, 2, 4, 2, 8, 7, 0, 2, 1, 1, 2, 3, 1, 0, 0, 4, 0, 0};
