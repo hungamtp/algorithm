@@ -1,4 +1,4 @@
-package com.company.chapter1;
+package com.company.search;
 
 public class main {
     public static void main(String[] args) {
