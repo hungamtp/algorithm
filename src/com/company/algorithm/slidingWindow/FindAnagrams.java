@@ -12,7 +12,6 @@ public class FindAnagrams {
         //➤ LeetCode: 438
         System.out.println(findAnagrams("cbaebabacd", "abc"));
     }
-
     public static List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
         int sLen = s.length(), pLen = p.length();
