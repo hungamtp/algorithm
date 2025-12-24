@@ -15,12 +15,8 @@ public class MajorityElement {
         int max = 0;
         int majorityNumber = 0;
         for (int num : nums) {
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-            } else {
-                map.put(num, 1);
-            }
-            int count = map.getOrDefault(num, 0);
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            int count = map.get(num);
             if (count > max) {
                 max = count;
                 majorityNumber = num;
@@ -29,5 +25,19 @@ public class MajorityElement {
 
 
         return majorityNumber;
+    }
+
+    // Voting
+    public int majorityElementVoting(int[] nums) {
+        int candidate = nums[0];
+        int count = 0;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+        return candidate;
     }
 }
