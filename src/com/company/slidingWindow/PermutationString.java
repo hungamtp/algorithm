@@ -1,8 +1,6 @@
-package com.company.algorithm.slidingWindow;
+package com.company.slidingWindow;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PermutationString {
     public static void main(String[] args) {

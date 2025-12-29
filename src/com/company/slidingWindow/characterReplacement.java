@@ -1,4 +1,4 @@
-package com.company.algorithm.slidingWindow;
+package com.company.slidingWindow;
 
 public class characterReplacement {
     public static void main(String[] args) {
