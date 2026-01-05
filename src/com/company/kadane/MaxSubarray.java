@@ -10,6 +10,8 @@ public class MaxSubarray {
         int maxSum = nums[0];
         int currentSum = nums[0];
         for (int i = 1; i < nums.length; i++) {
+            // If currentMax < current element, there is no reason to add it currentSum to the subArray
+            // It will always decrease the sum
             currentSum = Math.max(currentSum + nums[i], nums[i]);
             maxSum = Math.max(maxSum, currentSum);
         }
