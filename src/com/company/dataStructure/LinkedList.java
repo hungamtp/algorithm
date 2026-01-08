@@ -79,5 +79,19 @@ public class LinkedList {
         return slowP;
     }
 
+    public boolean hasLoop() {
+        Node slowP = head;
+        Node fastP = head;
+
+        while (fastP != null && fastP.next != null) {
+            slowP = slowP.next;
+            fastP = fastP.next.next;
+            if (slowP == fastP) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 
