@@ -93,5 +93,21 @@ public class LinkedList {
         return false;
     }
 
+    public Node findKthNodeFromEnd(int k) {
+        Node fastP = head;
+        Node slowP = head;
+        for (int i = 0; i < k; i++) {
+            if (fastP == null) {
+                return null;
+            }
+            fastP = fastP.next;
+        }
+        while (fastP != null ) {
+            slowP = slowP.next;
+            fastP = fastP.next;
+        }
+        return slowP;
+    }
+
 }
 
