@@ -1,35 +1,41 @@
 package com.company.dataStructure;
 
-public class LinkedList {
+import java.util.HashSet;
+import java.util.Set;
 
-    private Node head;
-    private Node tail;
+public class MyLinkedList {
+    public static void main(String[] args) {
+        System.out.println("LinkedList");
+    }
 
-    class Node {
+    private MyNode head;
+    private MyNode tail;
+
+    class MyNode {
         int value;
-        Node next;
+        MyNode next;
 
-        Node(int value) {
+        MyNode(int value) {
             this.value = value;
         }
     }
 
-    public LinkedList(int value) {
-        Node newNode = new Node(value);
+    public MyLinkedList(int value) {
+        MyNode newNode = new MyNode(value);
         head = newNode;
         tail = newNode;
     }
 
-    public Node getHead() {
+    public MyNode getHead() {
         return head;
     }
 
-    public Node getTail() {
+    public MyNode getTail() {
         return tail;
     }
 
     public void printList() {
-        Node temp = head;
+        MyNode temp = head;
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
@@ -58,7 +64,7 @@ public class LinkedList {
     }
 
     public void append(int value) {
-        Node newNode = new Node(value);
+        MyNode newNode = new MyNode(value);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -68,9 +74,9 @@ public class LinkedList {
         }
     }
 
-    public Node findMiddleNode() {
-        Node slowP = head;
-        Node fastP = head;
+    public MyNode findMiddleNode() {
+        MyNode slowP = head;
+        MyNode fastP = head;
 
         while (fastP != null && fastP.next != null) {
             slowP = slowP.next;
@@ -80,8 +86,8 @@ public class LinkedList {
     }
 
     public boolean hasLoop() {
-        Node slowP = head;
-        Node fastP = head;
+        MyNode slowP = head;
+        MyNode fastP = head;
 
         while (fastP != null && fastP.next != null) {
             slowP = slowP.next;
@@ -93,21 +99,47 @@ public class LinkedList {
         return false;
     }
 
-    public Node findKthNodeFromEnd(int k) {
-        Node fastP = head;
-        Node slowP = head;
+    public MyNode findKthNodeFromEnd(int k) {
+        MyNode fastP = head;
+        MyNode slowP = head;
         for (int i = 0; i < k; i++) {
             if (fastP == null) {
                 return null;
             }
             fastP = fastP.next;
         }
-        while (fastP != null ) {
+        while (fastP != null) {
             slowP = slowP.next;
             fastP = fastP.next;
         }
         return slowP;
     }
+
+    public void removeDuplicate() {
+        Set<Integer> set = new HashSet<>();
+        MyNode currentNode = head;
+    }
+
+    public int binaryToDecimal() {
+        // have no idea how many element
+        // find lenght
+        // 2^(n) + 2^(n-1)+ ... + 2^(0)
+        // Loop through the list
+        // if node.next != null
+        // sum += sum *2 + currentNode.value
+        return 1;
+    }
+
+    public void reverseBetween() {
+        MyNode head = this.head;
+        MyNode currentNode = head.next;
+        while (currentNode.next != null && currentNode.next.next != null) {
+            MyNode temp = currentNode.next.next;
+            currentNode.next.next = currentNode;
+
+        }
+    }
+
 
 }
 
