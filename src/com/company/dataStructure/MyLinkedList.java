@@ -6,6 +6,7 @@ import java.util.Set;
 public class MyLinkedList {
     public static void main(String[] args) {
         System.out.println("LinkedList");
+        Set<Integer> set = new HashSet<>();
     }
 
     private MyNode head;

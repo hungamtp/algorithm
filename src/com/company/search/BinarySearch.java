@@ -1,6 +1,6 @@
 package com.company.search;
 
-public class main {
+public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = new int[103];
         for (int i = 0; i <= arr.length - 1; i++) {
@@ -8,9 +8,7 @@ public class main {
         }
         int x = 55;
         System.out.println(binarySearch(arr, x));
-
     }
-
     public static boolean binarySearch(int arr[], int x) {
         int low = 0;
         int high = arr.length - 1;
