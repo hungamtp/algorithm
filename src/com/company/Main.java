@@ -1,12 +1,7 @@
 package com.company;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -35,6 +30,8 @@ public class Main {
         }
         return initialRange + 1;
     }
+
+
     static int[] bulbsOnAfterOperations(int testCases, int[] bulbs) {
         int[] results = new int[testCases];
 
@@ -47,15 +44,197 @@ public class Main {
     }
 
     public static void main(String[] args) {
-//        int[] numbers = new int[]{4, 2, 3};
-//        List<Integer> lista = Arrays.stream(numbers)
-//                .boxed()
-//                .collect(Collectors.toList());
-//        lista = lista.stream().sorted().collect(Collectors.toList());
-//        System.out.println(minimumRange(new int[]{2, 10, 8, 17 ,18 , 19}, 3));
-     //   numberOfLight(new int[]{3, 1, 2}, 3);
-        int[] result = bulbsOnAfterOperations(3 , new int[]{1,2 ,3, 5});
-        System.out.println("");
+        System.out.println(majorityElement(new int[]{2, 2, 1, 1, 3}));
+        String binaryString = Integer.toBinaryString(1);
+    }
+
+    public static int[] rotateArrayByK(int[] arr, int k) {
+
+        int n = arr.length;
+        if (n == 0) return arr;
+
+        k = k % n;
+
+        int left = k;
+        int right = n - 1;
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+
+        left = 0;
+        right = k - 1;
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+
+        left  =0;
+        right = n - 1;
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] =  arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+
+
+        return arr;
+    }
+
+    public static int gap(int n) {
+        String s = Integer.toBinaryString(n);
+
+        int count = 0;
+        int max = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == '0') {
+                count++;
+            } else {
+                max = Math.max(max, count);
+                count = 0;
+            }
+        }
+        return max;
+    }
+
+
+    public static int majorityElement(int[] nums) {
+        int count = 0;
+        int candidate = 0;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+
+            if (num == candidate) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+
+        return candidate;
+    }
+
+    public static int removeDuplicates1(int[] nums) {
+        if (nums.length <= 1) {
+            return nums.length;
+        }
+        int availableIndex = 1;
+        int currentNumber = nums[0];
+        int count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != currentNumber) {
+                nums[availableIndex] = nums[i];
+                availableIndex++;
+                currentNumber = nums[i];
+                count = 1;
+            } else {
+                if (count < 2) {
+                    nums[availableIndex] = nums[i];
+                    availableIndex++;
+                }
+                count++;
+            }
+        }
+        return availableIndex;
+    }
+
+    public static int removeElement(int[] nums, int val) {
+        int availableIndex = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[availableIndex] = nums[i];
+                availableIndex++;
+            }
+        }
+        return availableIndex;
+    }
+
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+
+        int index1 = m - 1;
+        int index2 = n - 1;
+        int availableIndex = m + n - 1;
+        while (index1 >= 0 && index2 >= 0) {
+            if (nums1[index1] > nums2[index2]) {
+                nums1[availableIndex] = nums1[index1];
+                index1--;
+            } else {
+                nums1[availableIndex] = nums2[index2];
+                index2--;
+            }
+            availableIndex--;
+        }
+        while (index2 >= 0) {
+            nums1[availableIndex] = nums2[index2];
+            index2--;
+            availableIndex--;
+        }
+        System.out.println(Arrays.toString(nums1));
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] sArr = new int[200];
+        int[] tArr = new int[200];
+        for (int i = 0; i < s.length(); i++) {
+            if (sArr[s.charAt(i)] != t.charAt(i)) {
+                return false;
+            }
+
+            sArr[s.charAt(i)] = t.charAt(i);
+            tArr[t.charAt(i)] = s.charAt(i);
+        }
+
+        return true;
+    }
+
+    public static boolean canConstruct(String ransomNote, String magazine) {
+
+        int[] magazineArr = new int[26];
+        for (int i = 0; i < magazine.length(); i++) {
+            magazineArr[magazine.charAt(i) - 'a']++;
+        }
+
+        for (int i = 0; i < ransomNote.length(); i++) {
+            magazineArr[ransomNote.charAt(i) - 'a']--;
+            if (magazineArr[ransomNote.charAt(i) - 'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void removeDuplicates(int[] nums) {
+        int currentNum = nums[0];
+        int availableIndex = 1;
+        int count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != currentNum) {
+                currentNum = nums[i];
+                nums[availableIndex] = currentNum;
+                count = 1;
+                availableIndex++;
+            } else {
+                if (count > 2) {
+
+                }
+                count++;
+
+            }
+        }
     }
 
     static void numberOfLight(int[] bulbs, int opt) {
