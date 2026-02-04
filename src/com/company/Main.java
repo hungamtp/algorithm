@@ -19,6 +19,13 @@ public class Main {
         }
     };
 
+    public static void main(String[] args) {
+        System.out.println(majorityElement(new int[]{2, 2, 1, 1, 3}));
+        String binaryString = Integer.toBinaryString(1);
+    }
+
+
+
     public static int minimumRange(int[] numbers, int cover) {
         List<Integer> lista = Arrays.stream(numbers)
                 .boxed()
@@ -43,10 +50,6 @@ public class Main {
         return results;
     }
 
-    public static void main(String[] args) {
-        System.out.println(majorityElement(new int[]{2, 2, 1, 1, 3}));
-        String binaryString = Integer.toBinaryString(1);
-    }
 
     public static int[] rotateArrayByK(int[] arr, int k) {
 
@@ -75,11 +78,11 @@ public class Main {
             right--;
         }
 
-        left  =0;
+        left = 0;
         right = n - 1;
         while (left < right) {
             int temp = arr[left];
-            arr[left] =  arr[right];
+            arr[left] = arr[right];
             arr[right] = temp;
             left++;
             right--;
