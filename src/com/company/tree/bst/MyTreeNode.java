@@ -3,8 +3,8 @@ package com.company.tree.bst;
 
 public class MyTreeNode {
     int value;
-    MyTreeNode left;
-    MyTreeNode right;
+    public MyTreeNode left;
+    public MyTreeNode right;
 
     public MyTreeNode() {
 

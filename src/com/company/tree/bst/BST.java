@@ -6,6 +6,10 @@ public class BST {
     public BST() {
     }
 
+    public MyTreeNode getRoot() {
+        return root;
+    }
+
     public BST(MyTreeNode root) {
         this.root = root;
     }
@@ -75,6 +79,7 @@ public class BST {
             rInsert(root.right, value);
         }
     }
+
     public void print() {
         if (root == null) {
             return;
