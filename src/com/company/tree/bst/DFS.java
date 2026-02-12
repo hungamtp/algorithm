@@ -12,13 +12,13 @@ public class DFS {
         root.left.right = new MyTreeNode(6);
         root.right.right = new MyTreeNode(20);
         root.right.left = new MyTreeNode(11);
-        System.out.println("DFS Traversal- inorder");
+        System.out.println("DFS Traversal- inorder LEFT -> ROOT -> RIGHT");
         inorder(root);
         System.out.println();
-        System.out.println("DFS Traversal- preorder");
+        System.out.println("DFS Traversal- preorder ROOT -> LEFT -> RIGHT");
         preorder(root);
         System.out.println();
-        System.out.println("DFS Traversal- postorder");
+        System.out.println("DFS Traversal- postorder LEFT -> RIGHT -> ROOT");
         postorder(root);
     }
 

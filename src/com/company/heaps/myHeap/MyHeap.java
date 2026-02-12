@@ -7,6 +7,10 @@ import java.util.List;
 public class MyHeap {
     private List<Integer> heap;
 
+    public List<Integer> getHeap() {
+        return heap;
+    }
+
     public MyHeap() {
         this.heap = new ArrayList<>();
     }
