@@ -20,8 +20,8 @@ public class AddBinary {
             if (j >= 0) {
                 sum += b.charAt(j) - '0';
             }
-            sb.append((sum + reminder)% 2);
-            reminder = (sum + reminder)/2;
+            sb.append((sum + reminder) % 2);
+            reminder = (sum + reminder) / 2;
             sum = 0;
             i--;
             j--;
@@ -29,10 +29,10 @@ public class AddBinary {
         if (reminder == 1) {
             sb.append(1);
         }
-        i =0;
+        i = 0;
         j = sb.length() - 1;
-        while(i < j){
-            char temp  = sb.charAt(i);
+        while (i < j) {
+            char temp = sb.charAt(i);
             sb.setCharAt(i, sb.charAt(j));
             sb.setCharAt(j, temp);
             i++;

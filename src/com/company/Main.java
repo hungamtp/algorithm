@@ -20,10 +20,28 @@ public class Main {
     };
 
     public static void main(String[] args) {
-        System.out.println(majorityElement(new int[]{2, 2, 1, 1, 3}));
-        String binaryString = Integer.toBinaryString(1);
+
+        System.out.println(2/1*0.1);
     }
 
+    public static int[] productExceptSelf(int[] nums) {
+        int[] result = new int[nums.length];
+        int[] prefix = new int[nums.length];
+        int[] suffix = new int[nums.length];
+        prefix[0] = 1;
+        suffix[0] = 1;
+
+        for (int i = 1 ; i < nums.length; i++) {
+            prefix[i] = prefix[i - 1] * nums[i - 1];
+            suffix[i] = suffix[i - 1] * nums[nums.length - i];
+        }
+
+        for ( int i = 0 ; i < nums.length; i++) {
+            result[i] = prefix[i] * suffix[nums.length - 1 - i];
+        }
+
+        return result;
+    }
 
 
     public static int minimumRange(int[] numbers, int cover) {
