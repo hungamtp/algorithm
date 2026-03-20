@@ -7,7 +7,7 @@ public class MoveZeros {
     public static void main(String[] args) {
 
         // [1,1,1,0,0,3]
-        //[0,1,0,3,12]
+        // [0,1,0,3,12]
         moveZeroes(new int[]{0,0,3,0,5,1,0});
     }
 

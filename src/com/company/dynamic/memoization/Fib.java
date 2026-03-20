@@ -9,7 +9,8 @@ public class Fib {
     public static void main(String[] args) {
         fibResult.put(8, 23);
 
-        System.out.println(fib(50));
+        //System.out.println(fib(50));
+        System.out.println(fib2(10));
     }
 
     public static int fib(int i) {
@@ -18,5 +19,11 @@ public class Fib {
         } else {
             return fib(i - 1) + fib(i - 2);
         }
+    }
+    public static int fib2(int i){
+        if (i <= 1) {
+            return i;
+        }
+        return fib2(i - 1) + fib2(i - 2);
     }
 }

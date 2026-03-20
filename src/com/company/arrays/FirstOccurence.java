@@ -3,7 +3,7 @@ package com.company.arrays;
 public class FirstOccurence {
     public static void main(String[] args) {
         String s2 = "abcxabcdabcdabcy";
-        String s1 = "aabaaac";
+        String s1 = "ababbcabab";
         System.out.println("Is substring: " + isSubstring(s1, s2));
 
         // A B A B C A B A B D
@@ -59,6 +59,27 @@ public class FirstOccurence {
             }
         }
         return lps;
+    }
+
+    public void demo(String s){
+        int[] lps = new int[s.length()];
+        int len = 0;
+
+        int i =1;
+        while(i< s.length()){
+            if (s.charAt(i) == s.charAt(len)){
+                len++;
+                lps[i] = len;
+
+            }else{
+                if (len != 0){
+                    len = lps[len - 1];
+                }else{
+                    lps[i] = 0;
+                    i++;
+                }
+            }
+        }
     }
 
     // https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/?envType=study-plan-v2&envId=top-interview-150
