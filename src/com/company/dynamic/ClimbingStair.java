@@ -6,11 +6,11 @@ import java.util.List;
 
 public class ClimbingStair {
     public static void main(String[] args) {
-//        HashMap<Integer, Integer> map = new HashMap<>();
-//        System.out.println(climbStairsWithMemory(4000,map));
-//        System.out.println(climbStairs(40));
-//        System.out.println(climbStairTabulation(40));
-        System.out.println(minCostClimbStairs(new int[]{5,18,4,15,6}));
+        HashMap<Integer, Integer> map = new HashMap<>();
+        System.out.println(climbStairsWithMemory(4000,map));
+        System.out.println(climbStairs(40));
+        System.out.println(climbStairTabulation(40));
+
 
     }
 
@@ -46,13 +46,5 @@ public class ClimbingStair {
         return list.get(n-1);
     }
 
-    public static int minCostClimbStairs(int[] cost) {
-        int[] dp = new int[cost.length+1];
-        dp[0] = cost[0];
-        dp[1] = cost[1];
-        for (int i = 2; i < cost.length; i++) {
-            dp[i] = Math.min(dp[i-1], dp[i-2]) + cost[i];
-        }
-        return dp[cost.length-1];
-    }
+
 }
