@@ -1,14 +1,41 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class InterviewMain {
     public static void main(String[] args) {
-
-        System.out.println(solution(12,36));
+        System.out.println(licenseKeyFormatting("5F3Z-2e-9-w", 4));
+        System.out.println(licenseKeyFormatting("2-5g-3-J", 2));
+        System.out.println(licenseKeyFormatting("a", 2));
+        System.out.println(licenseKeyFormatting("2a", 2));
+        System.out.println(licenseKeyFormatting("2aa", 2));
     }
+
+    public static String licenseKeyFormatting(String s, int k) {
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) != '-') {
+                if (count == k) {
+                    count = 0;
+                    stack.push('i');
+                }
+                count++;
+                stack.push(s.charAt(i));
+            }
+        }
+        while (!stack.isEmpty()) {
+            char c = stack.pop();
+            if (c == 'i') {
+                sb.append('-');
+            } else {
+                sb.append(Character.toUpperCase(c));
+            }
+        }
+        return sb.toString();
+    }
+
 
     static int countPieces(int length, int stick1, int stick2) {
         return (stick1 / length) + (stick2 / length);
@@ -43,7 +70,7 @@ public class InterviewMain {
             }
             currentPrice = a[i];
         }
-        return (int)(profit % 1000000000);
+        return (int) (profit % 1000000000);
     }
 
     //IMPOSSIBLE
