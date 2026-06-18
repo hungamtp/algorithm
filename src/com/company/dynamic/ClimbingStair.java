@@ -37,13 +37,17 @@ public class ClimbingStair {
         return climbStairs(n - 1) + climbStairs(n - 2);
     }
     public static int climbStairTabulation(int n){
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        for (int i = 3; i <= n; i++) {
-            list.add(list.get(i - 2) + list.get(i - 3));
+        if (n < 3){
+            return n;
         }
-        return list.get(n-1);
+        int previous = 1;
+        int current = 2;
+        for (int i = 3; i <= n; i++) {
+            int temp = current;
+            current = previous + current;
+            previous = temp;
+        }
+        return current;
     }
 
 
